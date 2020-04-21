@@ -9,7 +9,7 @@ function App() {
 
     useEffect(() => {
         axios
-            .get("/hello")
+            .get("/main")
             .then((resp) => {
                 setState(resp.data)
             })

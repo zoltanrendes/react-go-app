@@ -8,7 +8,7 @@ const axios = require("axios");
 const MockAdapter = require("axios-mock-adapter");
 const mock = new MockAdapter(axios);
 
-mock.onGet("/hello").reply(200, { text: "World" });
+mock.onGet("/main").reply(200, { text: "Welcome" });
 
 async function updateWrapper(wrapper, amount = 0) {
     await act(async () => {
@@ -26,7 +26,7 @@ describe("App.js", () => {
         });
     });
 
-    it("returns data when sendMessage is called", async () => {
+    it("shows welcome", async () => {
         let wrapper;
 
         await act(async () => {
@@ -35,6 +35,6 @@ describe("App.js", () => {
 
         const linkElement = wrapper.find("p");
         wrapper.update();
-        expect(linkElement.text()).toBe('Hello, World!');
+        expect(linkElement.text()).toBe("Hello, Welcome!");
     });
 });

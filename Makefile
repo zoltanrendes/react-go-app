@@ -1,6 +1,6 @@
 .PHONY: all
 
-all: clean build run
+all: clean test build run
 
 .PHONY: clean
 
@@ -9,6 +9,9 @@ clean:
 	@echo "[✔️] Clean complete!"
 
 .PHONY: build
+
+test:
+	@cd ./ui && yarn test:nowatch
 
 build:
 	@cd ./ui && yarn install
